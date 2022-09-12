@@ -2,13 +2,7 @@ package com.example.capstonenewsapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
-import androidx.core.view.children
 import com.example.capstonenewsapp.databinding.ActivityMainBinding
-import com.example.capstonenewsapp.databinding.ArticleViewBinding
-import com.example.capstonenewsapp.models.CategoryType
-import com.example.capstonenewsapp.models.CountryType
-import com.example.capstonenewsapp.models.LanguageType
 
 class MainActivity : AppCompatActivity() {
 
