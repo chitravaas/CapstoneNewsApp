@@ -2,11 +2,14 @@ package com.example.capstonenewsapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.capstonenewsapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+  //  lateinit var articlesRecyclerView: RecyclerView
 
     //Creating an object of NewsService and returning Articles
     private val newsService = NewsService()
@@ -18,10 +21,9 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        articles.forEach{ article ->
-            val articleView=ArticleCustomView(this)
-            articleView.setData(article)
-            binding.mainGroup.addView(articleView)
+        binding.articleRecyclerView.run {
+            adapter=ArticleRecyclerAdapter(articles)
+            layoutManager=LinearLayoutManager(this@MainActivity)
         }
     }
 }

@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/training/CapstoneNewsApp/app/src/main/res/drawable/delete_icon.xml" value="0.1" />
+        <entry key="..\:/training/CapstoneNewsApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/training/CapstoneNewsApp/app/src/main/res/drawable/jhklhk.xml" value="0.1" />
         <entry key="..\:/training/CapstoneNewsApp/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/training/CapstoneNewsApp/app/src/main/res/layout/article_view.xml" value="0.140625" />
       </map>
