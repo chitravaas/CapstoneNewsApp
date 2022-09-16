@@ -1,15 +1,15 @@
 package com.example.capstonenewsapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.example.capstonenewsapp.ArticleDetailsActivity.Companion.INTENT_EXTRA_ARTICLE
 import com.example.capstonenewsapp.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), onArticleTapListener {
 
     private lateinit var binding: ActivityMainBinding
-  //  lateinit var articlesRecyclerView: RecyclerView
 
     //Creating an object of NewsService and returning Articles
     private val newsService = NewsService()
@@ -22,8 +22,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
         binding.articleRecyclerView.run {
-            adapter=ArticleRecyclerAdapter(articles)
+            adapter=ArticleRecyclerAdapter(articles,this@MainActivity)
             layoutManager=LinearLayoutManager(this@MainActivity)
         }
+    }
+
+    //Tapping on VH of Recyclerview opens new Article Details screen
+    override fun onTap(article: Article) {
+        val intent = Intent(this, ArticleDetailsActivity::class.java)
+        intent.putExtra(INTENT_EXTRA_ARTICLE, article)
+        startActivity(intent)
     }
 }

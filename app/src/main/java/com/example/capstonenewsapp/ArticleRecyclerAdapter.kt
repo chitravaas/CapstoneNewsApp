@@ -4,7 +4,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView.Adapter
 
 class ArticleRecyclerAdapter(
-    articleList: List<Article>
+    articleList: List<Article>,
+    private val listener: onArticleTapListener
 ): Adapter<ArticleViewHolder>() {
     private val articles = articleList.toMutableList()
 
@@ -18,18 +19,12 @@ class ArticleRecyclerAdapter(
     }
 
     override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) {
-       holder.bindData(articles[position])
-     /*  {
-           removeArticleAtIndex(holder.absoluteAdapterPosition)
-       }*/
+       holder.bindData(articles[position]){
+           listener.onTap(articles[position])
+       }
     }
 
     override fun getItemCount(): Int {
         return articles.size
-    }
-
-    private fun removeArticleAtIndex(index : Int) {
-        articles.removeAt(index)
-        notifyItemRemoved(index)
     }
 }
